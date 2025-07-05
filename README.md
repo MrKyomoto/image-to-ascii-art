@@ -3,6 +3,7 @@ A simple demo to convert image to ascii art
 ![showcase](image.png)
 
 <br>
+
 ## How to use
 1. put your images into "image" folder
 2. `cargo run -- <your image name>`
