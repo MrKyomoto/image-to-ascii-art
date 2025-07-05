@@ -1,5 +1,6 @@
 # Intro
 A simple demo to convert image to ascii art
+
 ![showcase](image.png)
 
 
@@ -8,10 +9,12 @@ A simple demo to convert image to ascii art
 2. `cargo run -- <your image name>`
     - optional arg is the scale of the ascii art (default value is 64), `cargo run -- <your image name> -w <width(scale)>`
 
-<br>
+
 eg.
+
 `cargo run -- demo.jpg`
 <br>
+
 `cargo run -- demo.jpg -w 128`
 
 ### Reminder
