@@ -1,13 +1,31 @@
-use std::path::PathBuf;
-
+use std::path::{Path, PathBuf};
+use clap::Parser;
 use image::{DynamicImage, GenericImageView};
 
+#[derive(Debug,Parser)]
+#[command(version,about,long_about = "A simple demo to convert image to ascii art")]
+struct CLI{
+    path:Option<PathBuf>,
+    /// Determine the scale of the ascii art
+    #[arg(short,long,default_value_t = 64)]
+    width: u32,
+}
 fn main() {
+    let cli = CLI::parse();
+
+    let sub_path = Path::new("image");
+    if !sub_path.exists(){
+        std::fs::create_dir(sub_path)
+            .expect("create dir failed");
+    }
+
+    let img_path = cli.path.unwrap_or(PathBuf::from("demo.jpg"));
     let mut path = std::env::current_dir().unwrap();
-    path.push("avator.jpg");
+    path.push("image/");
+    path.push(img_path);
     println!("{:?}",path);
     let img = get_image(path);
-    let ascii_art = image_to_ascii_art(img, 80);
+    let ascii_art = image_to_ascii_art(img, cli.width);
     println!("{}",ascii_art);
 }
 
