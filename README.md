@@ -1,7 +1,7 @@
 # Intro
 A simple demo to convert image to ascii art
 
-![showcase](/image/image.png)
+![showcase](image/image.png)
 
 
 ## How to use
